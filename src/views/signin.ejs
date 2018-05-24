@@ -90,30 +90,19 @@
           
           
           <!--/stories-->
-          
-            <div class="row">    
+          <div class="row">    
             <br>
             <div class="col-md-2 col-sm-3 text-center">
-              <a class="story-title" href="#">
-              <img alt="" src="<%=book.details.image_url%>" style="width:100px;height:100px" ></a>
-            </div>
-            <div class="col-md-10 col-sm-9">
-              <h3><%=book.title%></h3>
-              <div class="row">
-                <div class="col-xs-9">
-                  <h4><span class="label label-default"><%=book.author%></span></h4><h4>
-                  </h4></div>
-                <div class="col-xs-3"></div>
-              </div>
-              <br><%-book.details.description%><br>
+              Sign In!
+              <form name="signInForm" action="/auth/signin" method="post">
+                UserName: <input name="username" id="username"/><br/>
+                Password: <input name="password" id="password"/><br/>
+                <input type="submit" value="Sign in" />
+              </form>
             </div>
           </div>
           <hr>
-          <!--/stories-->
           
-          
-          <a href="/" class="btn btn-primary pull-right btnNext">More <i class="glyphicon glyphicon-chevron-right"></i></a>
-        
           
         </div>
       </div>

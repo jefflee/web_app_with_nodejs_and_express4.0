@@ -55,7 +55,7 @@ const books = [
     read: false
   }];
 
-function router(nav) {
+function router() {
   adminRouter.route('/')
     .get((req, res) => {
       const url = mongoDbUrl;
