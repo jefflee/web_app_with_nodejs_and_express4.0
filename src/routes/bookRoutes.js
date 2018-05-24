@@ -17,17 +17,23 @@ function router(nav) {
     .get((req, res) => {
       const url = mongoDbUrl;
       const dbName = 'libraryApp';
+      debug('Before invoke IIFE function.');
       (async function mongo() {
         let client;
         try {
+          debug('Before Connected correctly to server');
           client = await MongoClient.connect(url);
-          debug('Connected correctly to server');
+          debug('After connected correctly to server');
 
           const db = client.db(dbName);
 
+          debug('Before open collection books');
           const col = await db.collection('books');
+          debug('After open collection  books');
 
+          debug('Before get all books');
           const books = await col.find().toArray();
+          debug('After get all books');
 
           res.render(
             'bookListView',
@@ -42,6 +48,7 @@ function router(nav) {
         }
         client.close();
       }());
+      debug('After invoke IIFE function.');
     });
 
   bookRouter.route('/:id')
